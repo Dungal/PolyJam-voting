@@ -1,8 +1,9 @@
 <html>
 <head>
 <script src="lib/jquery-1.10.2.min.js"></script>
-<script src="lib/jquery.sheetrock.js"></script>
 <script src="lib/hadsontable/jquery.handsontable.full.js"></script>
+<script src="lib/jquery.sheetrock.js"></script>
+
 
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" media="screen" href="lib/hadsontable/jquery.handsontable.full.css">
@@ -10,10 +11,15 @@
  <script>
 $( document ).ready(function() {
 $( "p" ).text( "The DOM is now loaded and can be manipulated." );
+var mySheet= 'https://docs.google.com/spreadsheet/ccc?key=0AmV29heKDZm5dGtTQktlNUtiQ1A5NzRZbTJtZFg2Z3c&usp=sharing#gid=0';
+$('#statistics').sheetrock({
+  url: mySheet
+});
 });
 </script>
 </head>
 <body>
 <p>Not loaded yet.</p>
+<table id="statistics"></table>
 <body/>
 <html/>
