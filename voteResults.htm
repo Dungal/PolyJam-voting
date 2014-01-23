@@ -10,14 +10,15 @@
 <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
  <script>
 $( document ).ready(function() {
-$( "p" ).text( "The DOM is now loaded and can be manipulated." );
 var mySheet_participant= 'https://docs.google.com/spreadsheet/ccc?key=0AkSDfOrKbdECdGdxZWFBNWg2NnhoOVJtX2pCVVp6MHc&usp=drive_web#gid=1';
 var mySheet_audiance= 'https://docs.google.com/spreadsheet/ccc?key=0AkSDfOrKbdECdFFzTl9zaGNkdTZRTXRqZEw0eVdrNUE&usp=drive_web#gid=1';
 $('#statistics_participant').sheetrock({
-  url: mySheet_participant
+  url: mySheet_participant,
+  sql: "select D, SUM(E), SUM(F), SUM(G) Group BY D order by SUM(E) desc"
 });
 $('#statistics_audiance').sheetrock({
-  url: mySheet_audiance
+  url: mySheet_audiance,
+  sql: "select C, SUM(D) Group by C  order by SUM(D) desc"
 });
 });
 </script>
@@ -26,6 +27,6 @@ $('#statistics_audiance').sheetrock({
 <h1>Participant Data</h1>
 <table id="statistics_participant"></table>
 <h1>Audiance Data</h1>
-<table id="statistics_audience"></table>
+<table id="statistics_audiance"></table>
 <body/>
 <html/>
